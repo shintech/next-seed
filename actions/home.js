@@ -1,21 +1,28 @@
 /*  /actions/home.js
 */
 import C from '../store/constants'
-import axios from 'axios'
+import fetch from 'isomorphic-fetch'
 
-const initialize = ({ data }) => {
+const initialize = ({ message }) => {
   return {
     type: C.INITIALIZE,
-    payload: data
+    payload: message
   }
 }
 
 export default {
   initialize: function () {
     return async dispatch => {
-      let res = await axios('/api/home')
+      let json
 
-      await dispatch(initialize(res))
+      try {
+        let res = await fetch('/api/home')
+        json = await res.json()
+      } catch (err) {
+        throw new Error(err.message)
+      }
+
+      await dispatch(initialize(json))
     }
   }
 }

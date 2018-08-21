@@ -6,7 +6,7 @@ const about = (state = {}, action) => {
   switch (action.type) {
     case C.INITIALIZE:
       return {
-        message: action.payload.message,
+        message: action.payload,
         loading: false
       }
 
