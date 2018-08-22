@@ -1,12 +1,15 @@
+/*  /pages/index.js
+*/
 import fetch from 'isomorphic-fetch'
+
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import action from '../actions'
 import Layout from '../layouts/Main'
 
 const Home = ({ message }) =>
-  <Layout title='home'>
-    <h3>Home</h3>
+  <Layout title='sandbox'>
+    <h3>Sandbox</h3>
     <div>{message}</div>
   </Layout>
 

@@ -4,14 +4,16 @@ import Head from 'next/head'
 import Wrapper from './Wrapper'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
+import { withRouter } from 'next/router'
 
-const Main = ({ children, title = 'Default', pathname = '/' }) =>
+const Main = ({ children, title = 'Main Layout', router }) =>
   <Wrapper>
     <Head>
       <title>{ title }</title>
+      <link rel='icon' type='image/png' href='images/favicon.png' />
     </Head>
     <header>
-      <Nav pathname={pathname} />
+      <Nav pathname={router.asPath} />
     </header>
 
     <main>
@@ -19,7 +21,7 @@ const Main = ({ children, title = 'Default', pathname = '/' }) =>
     </main>
 
     <Footer>
-      <img src='/public/images/react.svg' width='25px' height='25px' />
+      <img src='images/react.svg' width='25px' height='25px' />
       <a href='#'>
         <i className='far fa-copyright' />
         shintech.ninja
@@ -27,4 +29,4 @@ const Main = ({ children, title = 'Default', pathname = '/' }) =>
     </Footer>
   </Wrapper>
 
-export default Main
+export default withRouter(Main)

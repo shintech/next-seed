@@ -1,5 +1,3 @@
-/*  /actions/home.js
-*/
 import C from '../store/constants'
 import fetch from 'isomorphic-fetch'
 

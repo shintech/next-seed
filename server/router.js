@@ -1,12 +1,19 @@
-const express = require('express')
+const Router = require('koa-router')
 
-const home = require('./routes/home')
+const router = new Router()
 
-const router = express.Router()
+const api = new Router({
+  prefix: '/api'
+})
 
 module.exports = function (options) {
-  router.route('/home')
-    .get(home(options).initialize)
+  api.get('/home', async ctx => {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = JSON.stringify({ message: 'Success...' })
+  })
 
-  return router
+  return {
+    router,
+    api
+  }
 }

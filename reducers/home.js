@@ -1,5 +1,3 @@
-/*  /reducers/about.js
-*/
 import C from '../store/constants'
 
 const about = (state = {}, action) => {
